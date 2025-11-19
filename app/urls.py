@@ -2,14 +2,12 @@
 from django.contrib import admin
 from django.urls import path
 from . import views
+from .views import RegisterAPI, LoginAPI, LogoutAPI
+
 urlpatterns = [
-    path('', views.index, name='home'),
-    path('bestseller/', views.bestseller, name='bestseller'),
-    path('cart/', views.cart, name='cart'),
-    path('checkout/', views.checkout, name='checkout'),
-    path('contact/', views.contact, name='contact'),
-    path('shop/', views.shop, name='shop'),
-    path('single', views.single, name='single'),
+    path('register/', RegisterAPI.as_view()),
+    path('login/', LoginAPI.as_view()),
+    path('logout/', LogoutAPI.as_view()),
 ]
 
 handler404 = 'myapp.views.custom_404'
